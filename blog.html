@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Read the latest skincare and wellness tips from GlowSkin Clinic in Sri Lanka. Expert advice on skincare routines, treatments, and more.">
+  <meta name="keywords" content="skincare blog, wellness tips, GlowSkin, Sri Lanka, skincare advice, beauty blog">
+  <meta name="author" content="GlowSkin Clinic">
+  <title>Our Services - GlowSkin Skin Care & Wellness Clinic | Kelaniya</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="GlowSkin" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .blog-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    
+    .blog-main {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    .blog-full {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .blog-full img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    
+    .blog-content {
+      padding: 2rem;
+    }
+    
+    .blog-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #d4a373;
+      margin-bottom: 1rem;
+    }
+    
+    .blog-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    .blog-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    
+    .blog-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .sidebar-section {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .sidebar-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #d4a373;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .category-list {
+      list-style: none;
+    }
+    
+    .category-list li {
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .category-list li a {
+      color: #333;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .category-list li a:hover {
+      color: #d4a373;
+    }
+    
+    .recent-post {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .recent-post img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    
+    .recent-post-info h4 {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .recent-post-info a {
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .recent-post-info a:hover {
+      color: #d4a373;
+    }
+    
+    .recent-post-info .date {
+      font-size: 0.8rem;
+      color: #777;
+    }
+    
+    @media (max-width: 768px) {
+      .blog-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation - Will be loaded dynamically -->
+  <div id="navbar"></div>
+
+  <!-- Blog Header -->
+  <section style="margin-top: 100px;">
+    <h2>Our Blog</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;" data-aos="fade-up">
+      Stay updated with the latest skincare trends, wellness tips, and insights from our experts at GlowSkin.
+    </p>
+  </section>
+
+  <!-- Blog Content -->
+  <section style="padding-top: 0;">
+    <div class="blog-container">
+      <div class="blog-main">
+        <!-- Featured Article -->
+        <div class="blog-full" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15" alt="Top 5 Skincare Tips">
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span><i class="far fa-calendar"></i> April 25, 2025</span>
+              <span><i class="far fa-user"></i> Dr. Amaya Silva</span>
+              <span><i class="far fa-folder"></i> Skincare</span>
+            </div>
+            <h3>Top 5 Skincare Tips for Radiant Skin</h3>
+            <p>Achieving radiant skin isn't just about what products you use but also the consistency of your skincare routine. In this comprehensive guide, our skincare experts share their top tips for maintaining a healthy, glowing complexion throughout the year.</p>
+            <p>Proper hydration is key. Drink at least 8 glasses of water daily and use a hydrating serum containing hyaluronic acid to maintain your skin's moisture balance. Additionally, never skip sunscreen - even on cloudy days. UV rays can penetrate through clouds and cause premature aging.</p>
+            <p>Another essential tip is double cleansing, especially if you wear makeup or sunscreen daily. This method ensures all impurities are properly removed from your skin at the end of the day, preventing clogged pores and breakouts.</p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <!-- Second Article -->
+        <div class="blog-full" data-aos="fade-up">
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15" alt="Holistic Wellness Guide">
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span><i class="far fa-calendar"></i> April 20, 2025</span>
+              <span><i class="far fa-user"></i> Nisha Perera</span>
+              <span><i class="far fa-folder"></i> Wellness</span>
+            </div>
+            <h3>Your Guide to Holistic Wellness</h3>
+            <p>Wellness is about more than just physical health—it encompasses mental, emotional, and spiritual well-being as well. At GlowSkin, we believe in a holistic approach to skincare that addresses the interconnection between mind, body, and skin.</p>
+            <p>Research has shown that stress can trigger or worsen various skin conditions, including acne, eczema, and psoriasis. Implementing stress-management techniques such as meditation, deep breathing exercises, or yoga can significantly improve both your mental health and skin condition.</p>
+            <a href="#" class="btn">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="blog-sidebar">
+        <!-- Categories -->
+        <div class="sidebar-section" data-aos="fade-left">
+          <h3>Categories</h3>
+          <ul class="category-list">
+            <li><a href="#">Skincare <span>(12)</span></a></li>
+            <li><a href="#">Wellness <span>(8)</span></a></li>
+            <li><a href="#">Anti-Aging <span>(5)</span></a></li>
+            <li><a href="#">Treatments <span>(7)</span></a></li>
+            <li><a href="#">Beauty Tips <span>(10)</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="sidebar-section" data-aos="fade-left" data-aos-delay="100">
+          <h3>Recent Posts</h3>
+          <div class="recent-post">
+            <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d" alt="Acne Treatment Post">
+            <div class="recent-post-info">
+              <h4><a href="#">Effective Acne Treatments for Sensitive Skin</a></h4>
+              <span class="date">April 15, 2025</span>
+            </div>
+          </div>
+          <div class="recent-post">
+            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f" alt="Summer Skincare Post">
+            <div class="recent-post-info">
+              <h4><a href="#">Summer Skincare: Protecting Your Skin in the Heat</a></h4>
+              <span class="date">April 10, 2025</span>
+            </div>
+          </div>
+          <div class="recent-post">
+            <img src="https://images.unsplash.com/photo-1631730359585-8c12638d8581" alt="Natural Ingredients Post">
+            <div class="recent-post-info">
+              <h4><a href="#">Natural Ingredients That Transform Your Skin</a></h4>
+              <span class="date">April 5, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subscribe -->
+        <div class="sidebar-section" data-aos="fade-left" data-aos-delay="200">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Stay updated with our latest skincare tips and offers</p>
+          <form style="margin-top: 15px;">
+            <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+            <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Contact -->
+  <div class="floating-contact">
+    <a href="tel:+9471111232323">Call Us: 077 451 1737</a>
+    <a href="https://wa.me/9471111232323?text=Hello%20GlowSkin,%20I%27d%20like%20to%20inquire%20about%20your%20services" class="whatsapp-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Footer - Will be loaded dynamically -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
