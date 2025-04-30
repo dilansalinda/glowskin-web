@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book your appointment at GlowSkin Skincare and Wellness Clinic in Sri Lanka for premium skincare treatments and facials.">
+  <meta name="keywords" content="skincare booking, wellness appointment, GlowSkin, Sri Lanka, facials booking">
+  <meta name="author" content="GlowSkin Clinic">
+  <title>Our Services - GlowSkin Skin Care & Wellness Clinic | Kelaniya</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="GlowSkin" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Navigation - Will be loaded dynamically -->
+  <div id="navbar"></div>
+
+  <!-- Booking Section -->
+  <section id="booking" style="margin-top: 100px;">
+    <h2>Book Your Appointment</h2>
+    <div class="booking-form" data-aos="fade-up">
+      <form id="appointmentForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <select name="service" required>
+          <option value="" disabled selected>Select Service</option>
+          <option value="Medi Facial">Medi Facial</option>
+          <option value="Skin Analysis">Skin Analysis</option>
+          <option value="Hydra Facial">Hydra Facial</option>
+          <option value="Anti-Aging Treatment">Anti-Aging Treatment</option>
+          <option value="Acne Treatment">Acne Treatment</option>
+        </select>
+        <input type="date" name="date" required>
+        <select name="time" required>
+          <option value="" disabled selected>Select Time</option>
+          <option value="09:00">09:00 AM</option>
+          <option value="10:00">10:00 AM</option>
+          <option value="11:00">11:00 AM</option>
+          <option value="12:00">12:00 PM</option>
+          <option value="13:00">01:00 PM</option>
+          <option value="14:00">02:00 PM</option>
+          <option value="15:00">03:00 PM</option>
+          <option value="16:00">04:00 PM</option>
+          <option value="17:00">05:00 PM</option>
+        </select>
+        <textarea name="message" placeholder="Additional Notes (Optional)" rows="4"></textarea>
+        <button type="submit">Book Appointment</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Floating Contact -->
+  <div class="floating-contact">
+    <a href="tel:+9471111232323">Call Us: 077 451 1737</a>
+    <a href="https://wa.me/9471111232323?text=Hello%20GlowSkin,%20I%27d%20like%20to%20inquire%20about%20your%20services" class="whatsapp-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Footer - Will be loaded dynamically -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "ELTd2-XSxa8TZ4caP",
+      });
+   })();
+</script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>

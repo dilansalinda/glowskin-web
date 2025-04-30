@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore the premium skincare and wellness services offered by GlowSkin Clinic in Sri Lanka. From facials to specialized treatments.">
+  <meta name="keywords" content="skincare services, wellness treatments, GlowSkin, Sri Lanka, facials, beauty treatments">
+  <meta name="author" content="GlowSkin Clinic">
+  <title>Our Services - GlowSkin Skin Care & Wellness Clinic | Kelaniya</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="GlowSkin" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+    
+    .service-detail:nth-child(even) {
+      direction: rtl;
+    }
+    
+    .service-detail:nth-child(even) .service-text {
+      direction: ltr;
+    }
+    
+    .service-img {
+      height: 350px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .service-text {
+      text-align: left;
+    }
+    
+    .service-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #d4a373;
+      margin-bottom: 1rem;
+    }
+    
+    .price-tag {
+      display: inline-block;
+      background-color: #d4a373;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    .service-btn {
+      margin-top: 15px;
+      display: inline-block;
+    }
+    
+    @media (max-width: 768px) {
+      .service-detail {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .service-detail:nth-child(even) {
+        direction: ltr;
+      }
+      
+      .service-img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation - Will be loaded dynamically -->
+  <div id="navbar"></div>
+
+  <!-- Services Header -->
+  <section style="margin-top: 100px;">
+    <h2>Our Services</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;" data-aos="fade-up">
+      At GlowSkin, we offer a comprehensive range of skincare and wellness treatments tailored to your unique needs. 
+      Our experienced therapists use premium products and advanced techniques to deliver exceptional results.
+    </p>
+  </section>
+
+  <!-- Services List -->
+  <section style="padding-top: 0;">
+    <!-- Service 1 -->
+    <div class="service-detail" data-aos="fade-up">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" alt="Medi Facials">
+      </div>
+      <div class="service-text">
+        <h3>Medi Facials</h3>
+        <span class="price-tag">From Rs. 5,000</span>
+        <p>Our medical-grade facials go beyond traditional treatments to address specific skin concerns with clinical precision. Each Medi Facial is customized to your skin's unique needs, combining deep cleansing, exfoliation, extraction, and targeted treatments.</p>
+        <p>Benefits include:</p>
+        <ul>
+          <li>Deep pore cleansing</li>
+          <li>Enhanced skin cell turnover</li>
+          <li>Improved texture and tone</li>
+          <li>Reduced signs of aging</li>
+          <li>Treatment of acne and congestion</li>
+        </ul>
+        <a href="booking.html" class="btn service-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="service-detail" data-aos="fade-up">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Skin Analysis">
+      </div>
+      <div class="service-text">
+        <h3>Advanced Skin Analysis</h3>
+        <span class="price-tag">Rs. 3,500</span>
+        <p>Using state-of-the-art diagnostic technology, our comprehensive skin analysis reveals what's happening below the surface of your skin. This detailed assessment allows our experts to identify underlying concerns and create a personalized treatment plan.</p>
+        <p>Our analysis examines:</p>
+        <ul>
+          <li>Skin type and sensitivity</li>
+          <li>Hydration levels</li>
+          <li>Skin texture and elasticity</li>
+          <li>Pigmentation and uneven tone</li>
+          <li>Pore size and congestion</li>
+          <li>Fine lines and wrinkles</li>
+        </ul>
+        <a href="booking.html" class="btn service-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="service-detail" data-aos="fade-up">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c" alt="Hydra Facial">
+      </div>
+      <div class="service-text">
+        <h3>Advanced Hydra Facial</h3>
+        <span class="price-tag">Rs. 7,500</span>
+        <p>Our signature Hydra Facial is a multi-step treatment that cleanses, exfoliates, extracts, and hydrates your skin. This revolutionary procedure uses patented technology to deliver instant, long-lasting results for all skin types with no downtime.</p>
+        <p>The treatment includes:</p>
+        <ul>
+          <li>Deep cleansing and exfoliation</li>
+          <li>Gentle acid peel</li>
+          <li>Painless extractions</li>
+          <li>Hydration with antioxidants and peptides</li>
+          <li>LED light therapy</li>
+        </ul>
+        <a href="booking.html" class="btn service-btn">Book Now</a>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="service-detail" data-aos="fade-up">
+      <div class="service-img">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" alt="Anti-Aging Treatments">
+      </div>
+      <div class="service-text">
+        <h3>Anti-Aging Treatments</h3>
+        <span class="price-tag">From Rs. 8,000</span>
+        <p>Turn back the clock with our comprehensive anti-aging treatments designed to stimulate collagen production, reduce fine lines, and restore your skin's youthful appearance. Our specialists use a combination of advanced techniques to deliver visible results.</p>
+        <p>Treatment options include:</p>
+        <ul>
+          <li>Micro-needling therapy</li>
+          <li>Radiofrequency skin tightening</li>
+          <li>Collagen-boosting facials</li>
+          <li>Professional-grade chemical peels</li>
+          <li>LED light therapy</li>
+        </ul>
+        <a href="booking.html" class="btn service-btn">Book Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Contact -->
+  <div class="floating-contact">
+    <a href="tel:+9471111232323">Call Us: 077 451 1737</a>
+    <a href="https://wa.me/9471111232323?text=Hello%20GlowSkin,%20I%27d%20like%20to%20inquire%20about%20your%20services" class="whatsapp-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- Footer - Will be loaded dynamically -->
+  <div id="footer"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
