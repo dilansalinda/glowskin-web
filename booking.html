@@ -6,7 +6,7 @@
   <meta name="description" content="Book your appointment at GlowSkin Skincare and Wellness Clinic in Sri Lanka for premium skincare treatments and facials.">
   <meta name="keywords" content="skincare booking, wellness appointment, GlowSkin, Sri Lanka, facials booking">
   <meta name="author" content="GlowSkin Clinic">
-  <title>Our Services - GlowSkin Skin Care & Wellness Clinic | Kelaniya</title>
+  <title>Book Your Appointment - GlowSkin Skin Care & Wellness Clinic | Kelaniya</title>
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
@@ -32,41 +32,86 @@
     <h2>Book Your Appointment</h2>
     <div class="booking-form" data-aos="fade-up">
       <form id="appointmentForm">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <select name="service" required>
-          <option value="" disabled selected>Select Service</option>
-          <option value="Medi Facial">Medi Facial</option>
-          <option value="Skin Analysis">Skin Analysis</option>
-          <option value="Hydra Facial">Hydra Facial</option>
-          <option value="Anti-Aging Treatment">Anti-Aging Treatment</option>
-          <option value="Acne Treatment">Acne Treatment</option>
-        </select>
-        <input type="date" name="date" required>
-        <select name="time" required>
-          <option value="" disabled selected>Select Time</option>
-          <option value="09:00">09:00 AM</option>
-          <option value="10:00">10:00 AM</option>
-          <option value="11:00">11:00 AM</option>
-          <option value="12:00">12:00 PM</option>
-          <option value="13:00">01:00 PM</option>
-          <option value="14:00">02:00 PM</option>
-          <option value="15:00">03:00 PM</option>
-          <option value="16:00">04:00 PM</option>
-          <option value="17:00">05:00 PM</option>
-        </select>
-        <textarea cols="70" rows ="10" name="message" placeholder="Additional Notes (Optional)">
-        </textarea>
-        <button type="submit">Book Appointment</button>
+        <div class="form-group">
+          <label for="name">Your Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Select Service <span class="required">*</span></label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select Service</option>
+            <option value="Acne Treatments">Acne Treatments</option>
+            <option value="Advanced Hydra Facial Treatments">Advanced Hydra Facial Treatments</option>
+            <option value="Anti Aging Treatments">Anti Aging Treatments</option>
+            <option value="Botox">Botox</option>
+            <option value="Carbon Facial Treatments">Carbon Facial Treatments</option>
+            <option value="Chemical Peels">Chemical Peels</option>
+            <option value="Dermal Threads/Fillers">Dermal Threads/Fillers</option>
+            <option value="Facial PRP Treatments">Facial PRP Treatments</option>
+            <option value="Hair PRP Treatments">Hair PRP Treatments</option>
+            <option value="Hyperpigmentation Treatments">Hyperpigmentation Treatments</option>
+            <option value="Laser Hair Reduction">Laser Hair Reduction</option>
+            <option value="Laser Treatments">Laser Treatments</option>
+            <option value="Medi Facials">Medi Facials</option>
+            <option value="Microdermabrasion">Microdermabrasion</option>
+            <option value="Microneedling & Collagen Induction Therapy">Microneedling & Collagen Induction Therapy</option>
+            <option value="Skin Analysis">Skin Analysis</option>
+            <option value="Skin Tags, Moles & Warts Removal">Skin Tags, Moles & Warts Removal</option>
+            <option value="Tattoo Removal">Tattoo Removal</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Select Date <span class="required">*</span></label>
+          <input type="date" id="date" name="date" value="2025-05-23" min="2025-05-23" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Select Time <span class="required">*</span></label>
+          <select id="time" name="time" required>
+            <option value="" disabled selected>Select Time</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">01:00 PM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="15:00">03:00 PM</option>
+            <option value="16:00">04:00 PM</option>
+            <option value="17:00">05:00 PM</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Additional Notes (Optional)</label>
+          <textarea id="message" name="message" placeholder="Additional Notes (Optional)" rows="4" class="notes-textarea"></textarea>
+        </div>
+        <button type="submit" id="submitBtn">Book Appointment</button>
       </form>
     </div>
   </section>
 
+  <!-- Popup Dialog -->
+  <div id="confirmationPopup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" id="closePopup">×</span>
+      <h3>Booking Confirmed!</h3>
+      <p id="confirmationMessage"></p>
+      <a href="index.html" class="popup-btn">Back to Home</a>
+    </div>
+  </div>
+
   <!-- Floating Contact -->
   <div class="floating-contact">
-    <a href="tel:+9471111232323">Call Us: 077 451 1737</a>
-    <a href="https://wa.me/9471111232323?text=Hello%20GlowSkin,%20I%27d%20like%20to%20inquire%20about%20your%20services" class="whatsapp-btn" target="_blank">
+    <a href="tel:+94774511737">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://wa.me/94774511737?text=Hello%20GlowSkin,%20I%27d%20like%20to%20inquire%20about%20your%20services" class="whatsapp-btn" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
   </div>
@@ -79,15 +124,16 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
+  </script>
+  <script type="text/javascript">
    (function(){
       emailjs.init({
         publicKey: "ELTd2-XSxa8TZ4caP",
       });
    })();
-</script>
+  </script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/booking.js"></script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e12d50db1f4552',t:'MTc0Njk2MTI3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>

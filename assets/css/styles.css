@@ -11,6 +11,13 @@ body {
   background-color: #f9f5f0;
 }
 
+@font-face {
+  font-family: 'Roxborough CF';
+  src: url('../font/Roxborough\ CF.ttf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Navigation */
 nav {
   background-color: #fff;
@@ -49,7 +56,7 @@ nav {
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roxborough CF','Playfair Display', serif;
   font-size: 1.8rem;
   color: #d4a373;
   line-height: 1;
@@ -60,6 +67,11 @@ nav {
   font-size: 0.8rem;
   color: #666;
   line-height: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a {
@@ -74,9 +86,76 @@ nav {
   color: #d4a373;
 }
 
+/* Style for the "Make an Appointment" button */
+.nav-links a:last-child {
+  background-color: #d4a373; /* Brown color matching the theme */
+  color: #fff; /* White text for contrast */
+  padding: 0.5rem 1rem; /* Add some padding to make it look like a button */
+  border-radius: 20px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-links a:last-child:hover {
+  background-color: #b38b59; /* Slightly darker brown on hover */
+  color: #fff; /* Ensure text stays white on hover */
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Hidden by default */
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  transition: right 0.3s ease-in-out; /* Slide animation */
+}
+
+.sidebar.active {
+  right: 0; /* Slide in */
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+}
+
+.sidebar-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  transition: color 0.3s;
+}
+
+.sidebar-links a:hover {
+  color: #d4a373;
+}
+
 /* Hero Section */
 .hero {
   height: 100vh;
+  min-height: 600px; /* Minimum height for large screens */
   background: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9') no-repeat center/cover;
   display: flex;
   align-items: center;
@@ -84,6 +163,9 @@ nav {
   text-align: center;
   color: #fff;
   position: relative;
+  max-width: 100%; /* Ensure full width */
+  margin-left: 0; /* Remove any margin */
+  padding: 0; /* Remove padding to ensure full width */
 }
 
 .hero::before {
@@ -99,14 +181,42 @@ nav {
 .hero-content {
   position: relative;
   z-index: 1;
+  padding: 0 20px; /* Ensure content is readable */
+  max-width: 1200px; /* Limit content width for readability */
+  margin: 0 auto; /* Center content */
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roxborough CF','Playfair Display', serif;
   font-size: 3.5rem;
   margin-bottom: 1rem;
 }
+.scroll-arrow {
+  font-size: 3rem;
+  position: absolute;
+  bottom: 2px; /* Position at the bottom with some spacing */
+  left: 50%;
+  transform: translateX(-50%); /* Center the arrow horizontally */
+  text-decoration: none; /* Remove default link underline */
+  color: #fff; /* Match hero text color */
+  animation: blink 1.5s infinite;
+  cursor: pointer; /* Indicate clickable */
+  transition: opacity 0.3s ease; /* Smooth hover effect */
+  z-index: 2;
+}
 
+.scroll-arrow:hover {
+  opacity: 0.7; /* Slight fade on hover for feedback */
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 .hero p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
@@ -120,10 +230,176 @@ nav {
   border-radius: 5px;
   font-weight: 600;
   transition: background-color 0.3s;
+  margin-bottom: 6rem; /* Add space before the arrow */
 }
 
 .btn:hover {
   background-color: #b38b59;
+}
+
+/* About Section */
+.about-section {
+  padding: 5rem 2rem;
+  padding-bottom: 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f1e7; /* Light beige background */
+  position: relative;
+}
+
+.about-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 400px; /* Ensure container has height */
+}
+
+.about-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%); /* Start off-screen to the right */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  z-index: 1; /* Default z-index */
+  display: none; /* Hidden by default */
+}
+
+.about-slide.active {
+  opacity: 1;
+  transform: translateX(0); /* Slide in to position */
+  z-index: 2; /* Ensure active slide is on top */
+  display: flex; /* Show active slide */
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.about-image,
+.doctor-image {
+  max-width: 51%; /* Ensure equal width */
+  display: flex; /* Center the image */
+  align-items: center;
+}
+
+.about-image img {
+  width: 85%; /* Clinic image takes full width of its container */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-image img {
+  width: 50%; /* Zoom out by reducing width to 80% of its container */
+  height: auto;
+  object-fit: cover;
+  /* border-radius: 50%; */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.about-text {
+  flex: 1; /* Take up 50% of the space */
+  max-width: 50%; /* Ensure equal width */
+  padding: 1rem;
+}
+
+.about-text h3 {
+  font-family: 'Roxborough CF','Playfair Display', serif;
+  font-size: 2rem;
+  color: #d4a373;
+  margin-bottom: 0.5rem;
+}
+
+.about-text h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.about-nav-btn {
+  position: absolute;
+  top: 80%;
+  right: 2rem;
+  transform: translateY(-50%);
+  background-color: #d4a373;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 10;
+}
+
+.about-nav-btn:hover {
+  background-color: #b38b59;
+}
+
+/* Fallback for when JavaScript is disabled */
+.about-slide:first-child {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    min-height: 600px; /* Adjust for stacked content on mobile */
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image,
+  .doctor-image,
+  .about-text {
+    flex: none; /* Reset flex for stacking */
+    max-width: 100%; /* Full width on mobile */
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .doctor-image img {
+    width: 80%; /* Maintain zoom-out effect on mobile */
+    max-width: 240px; /* 80% of 300px to match clinic image */
+    margin: 0 auto;
+  }
+
+  .about-nav-btn {
+    top: auto;
+    bottom: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
 /* Sections */
@@ -134,7 +410,7 @@ section {
 }
 
 h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roxborough CF','Playfair Display', serif !important;
   font-size: 2.5rem;
   color: #d4a373;
   text-align: center;
@@ -182,6 +458,23 @@ h2 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.required {
+  color: #d4a373;
 }
 
 .booking-form input,
@@ -194,13 +487,25 @@ h2 {
   font-size: 1rem;
 }
 
+.notes-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  box-sizing: border-box;
+}
+
 .booking-form button {
   width: 100%;
   padding: 1rem;
   background-color: #d4a373;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -210,18 +515,111 @@ h2 {
   background-color: #b38b59;
 }
 
-/* Blog */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.booking-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Popup Dialog */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content h3 {
+  font-family: 'Playfair Display', serif;
+  color: #d4a373;
+  margin-bottom: 1rem;
+}
+
+.popup-content p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.popup-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #d4a373;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 15px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.popup-btn:hover {
+  background-color: #b38b59;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #d4a373;
+}
+
+/* Blog Section */
+.blog-section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff; /* White background for contrast */
+}
+
+.blog-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #d4a373;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
 }
 
 .blog-card {
-  background: #fff;
+  flex: 1 1 300px; /* Flexible width, minimum 300px */
+  max-width: 400px; /* Cap the width for larger screens */
+  background-color: #f9f1e7; /* Light beige background */
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
 }
 
 .blog-card img {
@@ -230,8 +628,62 @@ h2 {
   object-fit: cover;
 }
 
-.blog-card-content {
+.blog-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+}
+
+.blog-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #d4a373;
+  margin-bottom: 0.5rem;
+}
+
+.blog-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.5rem; /* Space between text and button */
+}
+
+.read-more-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #d4a373;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  align-self: flex-start; /* Align button to the start */
+}
+
+.read-more-btn:hover {
+  background-color: #b38b59;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-card {
+    max-width: 100%;
+  }
+
+  .blog-content {
+    text-align: center;
+  }
+
+  .read-more-btn {
+    align-self: center; /* Center button on mobile */
+  }
 }
 
 /* Floating Contact Button */
@@ -261,7 +713,7 @@ h2 {
 }
 
 .whatsapp-btn {
-  background-color: #25D366;
+  background-color: #25D366 !important;
   padding: 0.8rem;
   border-radius: 50%;
   font-size: 1.5rem;
@@ -272,7 +724,7 @@ h2 {
 }
 
 .whatsapp-btn:hover {
-  background-color: #1DA851;
+  background-color: #1DA851 !important;
 }
 
 /* Footer */
@@ -294,7 +746,7 @@ footer {
 
 .footer-about h3,
 .footer-contact h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roxborough CF','Playfair Display', serif;
   font-size: 1.5rem;
   color: #d4a373;
   margin-bottom: 1rem;
@@ -358,24 +810,81 @@ footer a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide nav links on mobile */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+  }
+
   .hero h1 {
     font-size: 2.5rem;
   }
+
   .nav-links a {
     margin-left: 1rem;
   }
+
   .floating-contact {
     flex-direction: column;
     gap: 0.5rem;
   }
+
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
   .google-map {
     margin: 0 auto;
   }
+
   .social-icons {
     justify-content: center;
+  }
+
+  /* Sidebar Styles for Mobile */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transition: right 0.3s ease-in-out; /* Slide animation */
+  }
+
+  .sidebar.active {
+    right: 0; /* Slide in */
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+  }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+  }
+
+  .sidebar-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    transition: color 0.3s;
+  }
+
+  .sidebar-links a:hover {
+    color: #d4a373;
   }
 }

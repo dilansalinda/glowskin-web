@@ -5,15 +5,60 @@
       <img src="../assets/images/logo_nav.png" alt="GlowSkin Logo" class="logo-img">
       <div class="logo-text">
         <span class="logo">GlowSkin</span>
-        <span class="tagline">Skincare & wellness clinic</span>
+        <span class="tagline">Aesthetic & Cosmetology Clinic</span>
       </div>
     </a>
+    <div class="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="index.html#about">About Us</a>
       <a href="index.html#services">Services</a>
       <a href="index.html#blog">Blog</a>
-      <a href="booking.html">Book Now</a>
+      <a href="booking.html">
+        <i class="fa-regular fa-calendar-check" style="color: #ffffff;"></i>
+      Make an Appointment</a>
+    </div>
+    <div class="sidebar">
+      <div class="close-btn">
+        <i class="fas fa-times"></i>
+      </div>
+      <div class="sidebar-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#blog">Blog</a>
+        <a href="booking.html">Make an Appointment</a>
+      </div>
     </div>
   </div>
 </nav>
+
+<script>
+  // Ensure script runs after DOM is fully loaded
+  function initializeSidebar() {
+    const hamburger = document.querySelector('.hamburger');
+    const sidebar = document.querySelector('.sidebar');
+    const closeBtn = document.querySelector('.close-btn');
+
+    if (hamburger && sidebar && closeBtn) {
+      hamburger.addEventListener('click', () => {
+        sidebar.classList.add('active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+      });
+    } else {
+      console.error('Navigation elements not found. Ensure hamburger, sidebar, and close-btn elements are present.');
+    }
+  }
+
+  // Run on DOMContentLoaded, with a fallback for dynamic loading
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeSidebar);
+  } else {
+    initializeSidebar();
+  }
+</script>
