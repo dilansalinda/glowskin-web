@@ -205,6 +205,10 @@ nav {
   z-index: 2;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .scroll-arrow:hover {
   opacity: 0.7; /* Slight fade on hover for feedback */
 }
@@ -349,11 +353,46 @@ nav {
   font-size: 1.5rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  transition: transform 0.3s ease;
   z-index: 10;
 }
 
 .about-nav-btn:hover {
   background-color: #b38b59;
+}
+
+.about-nav-btn i {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .about-nav-btn i {
+    content: "\f078"; /* Unicode for fa-chevron-down */
+  }
+  .about-nav-btn .fa-chevron-right {
+    display: none;
+  }
+  .about-nav-btn::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f078"; /* fa-chevron-down */
+    display: inline-block;
+  }
+}
+
+@media (min-width: 769px) {
+  .about-nav-btn i {
+    content: "\f054"; /* Unicode for fa-chevron-right */
+  }
+  .about-nav-btn .fa-chevron-down {
+    display: none;
+  }
+  .about-nav-btn::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f054"; /* fa-chevron-right */
+    display: inline-block;
+  }
 }
 
 /* Fallback for when JavaScript is disabled */

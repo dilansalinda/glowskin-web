@@ -78,17 +78,34 @@ function initializeSidebar() {
   }
 }
 
-// Add fade-out effect before page transition (for scroll-arrow)
 document.addEventListener('DOMContentLoaded', function() {
   const scrollArrow = document.querySelector('.scroll-arrow');
-  if (scrollArrow) {
+  const heroSection = document.querySelector('.hero');
+
+  if (scrollArrow && heroSection) {
     scrollArrow.addEventListener('click', function(e) {
       e.preventDefault();
-      document.body.style.transition = 'opacity 0.5s ease';
-      document.body.style.opacity = '0';
-      setTimeout(() => {
-        window.location.href = this.getAttribute('href');
-      }, 500);
+      
+      // Apply fade-out effect to the hero section only
+      heroSection.style.transition = 'opacity 0.5s ease';
+      heroSection.style.opacity = '0';
+
+      // Get the target section ID from the href
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+
+      if (targetSection) {
+        // Scroll to the target section after the fade-out
+        setTimeout(() => {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+          // Reset hero section opacity after scrolling
+          heroSection.style.opacity = '1';
+        }, 500);
+      } else {
+        console.error(`Target section ${targetId} not found`);
+        // Reset hero section opacity if target not found
+        heroSection.style.opacity = '1';
+      }
     });
   }
 });
