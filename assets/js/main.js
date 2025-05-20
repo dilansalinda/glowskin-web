@@ -116,7 +116,6 @@ function initializeAboutSlideShow() {
   const navBtn = document.querySelector('.about-nav-btn');
 
   if (!slides.length || !navBtn) {
-    console.error('About slides or navigation button not found. Slides:', slides.length, 'Nav Btn:', navBtn);
     return;
   }
 
@@ -151,7 +150,6 @@ function initializeAboutSlideShow() {
       isTransitioning = false;
     }, 500); // Match transition duration in CSS
 
-    console.log('Showing slide:', index); // Debug log
   }
 
   function nextSlide() {
@@ -174,23 +172,52 @@ function initializeAboutSlideShow() {
   });
 }
 
-document.getElementById('newsletter-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+ // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const serviceDetails = document.querySelectorAll('.service-detail');
 
-  const email = document.getElementById('subscriber-email').value;
-  const message = document.getElementById('subscription-message');
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const category = this.getAttribute('data-category');
 
-  if (!email || !email.includes('@')) {
-    message.textContent = 'Please enter a valid email address.';
-    message.style.color = 'red';
-    return;
-  }
+          // Remove active class from all buttons and add to the clicked one
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
 
-  // Simulate successful subscription (replace with real API call if needed)
-  console.log('Subscribed:', email);
-  message.textContent = 'Thank you for subscribing GlowSkin Blog!';
-  message.style.color = 'green';
+          // Show or hide service details based on category using a class
+          serviceDetails.forEach(detail => {
+            const detailCategory = detail.getAttribute('data-category');
+            if (category === 'all' || detailCategory === category) {
+              detail.classList.remove('hidden');
+            } else {
+              detail.classList.add('hidden');
+            }
+          });
 
-  // Optionally clear input
-  document.getElementById('subscriber-email').value = '';
-});
+          // Show or hide close button only if it exists
+          const closeBtn = this.querySelector('.close-btn');
+          if (closeBtn) {
+            if (category === 'all') {
+              closeBtn.style.display = 'none';
+            } else {
+              filterButtons.forEach(btn => {
+                const btnClose = btn.querySelector('.close-btn');
+                if (btnClose) btnClose.style.display = 'none';
+              });
+              closeBtn.style.display = 'inline';
+            }
+          }
+        });
+
+        // Handle close button click to reset filter
+        const closeBtn = button.querySelector('.close-btn');
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent triggering the filter button click
+            const allButton = document.querySelector('.filter-btn[data-category="all"]');
+            allButton.click(); // Trigger the "All" filter
+          });
+        }
+      });
+    });

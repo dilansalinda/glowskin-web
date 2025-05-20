@@ -78,15 +78,27 @@
       margin-bottom: 1rem;
     }
     
-    .price-tag {
-      display: inline-block;
-      background-color: #d4a373;
-      color: white;
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-weight: 600;
-      margin: 10px 0;
-    }
+.service-detail ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  text-align: left; /* Align list items for readability */
+}
+
+.service-detail ul li {
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.service-detail ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #d4a373;
+}
 
     .service-btn {
       margin-top: 15px;
@@ -107,6 +119,82 @@
         height: 250px;
       }
     }
+/* Filter Section */
+.filter-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.5rem;
+  background-color: #f0e6d6;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+}
+
+.filter-btn:hover {
+  background-color: #d4a373;
+  color: #fff;
+}
+
+.filter-btn.active {
+  background-color: #d4a373;
+  color: #fff;
+}
+
+.close-btn {
+  display: none;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Services (reverted to original styling, removed card styles) */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Remove card-like styles, keep minimal styling */
+.service-detail {
+  text-align: center; /* Minimal styling from original */
+}
+
+/* Hidden Class for Filtering */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-buttons {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -121,15 +209,25 @@
   <section style="margin-top: 100px;">
     <h2>Our Services</h2>
     <p style="text-align: center; max-width: 800px; margin: 0 auto 50px auto;" data-aos="fade-up">
-      At GlowSkin, we offer a comprehensive range of skincare and wellness treatments tailored to your unique needs. 
+      At <strong>GlowSkin</strong> we offer a comprehensive range of skincare and wellness treatments tailored to your unique needs. 
       Our experienced therapists use premium products and advanced techniques to deliver exceptional results.
     </p>
   </section>
 
+   <section id="services">
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-category="all">All <span class="close-btn">×</span></button>
+          <button class="filter-btn" data-category="facials">Facials</button>
+          <button class="filter-btn" data-category="anti-aging">Anti-Aging</button>
+          <button class="filter-btn" data-category="skin-analysis">Skin Analysis</button>
+        </div>
+      </div>
   <!-- Services List -->
   <section style="padding-top: 0;">
     <!-- Service 1 -->
-    <div class="service-detail" data-aos="fade-up">
+    <div class="service-detail" data-category="facials">
       <div class="service-img">
         <img src="assets/images/Medi_Facials-2.jpeg" alt="Medi Facials">
       </div>
@@ -150,7 +248,7 @@
     </div>
 
     <!-- Service 2 -->
-    <div class="service-detail" data-aos="fade-up">
+    <div class="service-detail" data-category="skin-analysis">
       <div class="service-img">
         <img src="assets/images/Advanced_Skin_Analysis.jpeg" alt="Skin Analysis">
       </div>
@@ -172,7 +270,7 @@
     </div>
 
     <!-- Service 3 -->
-    <div class="service-detail" data-aos="fade-up">
+    <div class="service-detail" data-category="facials">
       <div class="service-img">
         <img src="assets/images/Advanced_Hydra_Facial_Treatments.jpg" alt="Hydra Facial">
       </div>
@@ -193,9 +291,9 @@
     </div>
 
     <!-- Service 4 -->
-    <div class="service-detail" data-aos="fade-up">
+    <div class="service-detail" data-category="anti-aging">
       <div class="service-img">
-        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881" alt="Anti-Aging Treatments">
+        <img src="assets/images/Anti-Aging_Treatments.jpg" alt="Anti-Aging Treatments">
       </div>
       <div class="service-text">
         <h3>Anti-Aging Treatments</h3>
@@ -212,11 +310,281 @@
         <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
       </div>
     </div>
+<div class="service-detail" data-category="laser">
+          <div class="service-img">
+            <img src="assets/images/Laser Treatments.jpg" alt="Laser Treatments">
+          </div>
+          <div class="service-text">
+            <h3>Laser Treatments</h3>
+            <p>Experience the power of advanced laser technology to target pigmentation, scars, and fine lines. Our laser treatments offer precision and minimal downtime for a flawless complexion.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Reduces pigmentation and scars</li>
+              <li>Improves skin texture</li>
+              <li>Minimizes fine lines</li>
+              <li>Stimulates collagen production</li>
+              <li>Quick recovery time</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="facials">
+          <div class="service-img">
+            <img src="assets/images/Microdermabrasion.jpg" alt="Microdermabrasion">
+          </div>
+          <div class="service-text">
+            <h3>Microdermabrasion</h3>
+            <p>Reveal smoother, brighter skin with our microdermabrasion treatment. This gentle exfoliation removes dead skin cells, leaving your complexion radiant and refreshed.</p>
+            <p>The treatment includes:</p>
+            <ul>
+              <li>Deep exfoliation</li>
+              <li>Improved skin texture</li>
+              <li>Reduced fine lines</li>
+              <li>Enhanced product absorption</li>
+              <li>Immediate glow</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="skin-analysis">
+          <div class="service-img">
+            <img src="assets/images/Acne Treatments.jpg" alt="Acne Treatments">
+          </div>
+          <div class="service-text">
+            <h3>Acne Treatments</h3>
+            <p>Combat acne with our specialized treatments designed to clear breakouts and prevent future flare-ups. We tailor each session to your skin’s needs for lasting clarity.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Reduces active acne</li>
+              <li>Minimizes scarring</li>
+              <li>Controls oil production</li>
+              <li>Clears clogged pores</li>
+              <li>Promotes healing</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="facials">
+          <div class="service-img">
+            <img src="assets/images/Facial PRP Treatments.jpg" alt="Facial PRP Treatments">
+          </div>
+          <div class="service-text">
+            <h3>Facial PRP Treatments</h3>
+            <p>Rejuvenate your skin with Platelet-Rich Plasma (PRP) therapy. Known as the "vampire facial," this treatment uses your body’s own growth factors to boost radiance and youthfulness.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Stimulates collagen production</li>
+              <li>Reduces fine lines</li>
+              <li>Improves skin tone</li>
+              <li>Enhances natural glow</li>
+              <li>Minimizes scars</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="hair-treatments">
+          <div class="service-img">
+            <img src="assets/images/Hair PRP Treatments.jpg" alt="Hair PRP Treatments">
+          </div>
+          <div class="service-text">
+            <h3>Hair PRP Treatments</h3>
+            <p>Stimulate hair growth with our Hair PRP therapy. This cutting-edge treatment uses your own plasma to nourish follicles, promoting thicker, healthier hair.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Stimulates hair follicles</li>
+              <li>Reduces hair thinning</li>
+              <li>Improves hair density</li>
+              <li>Strengthens hair roots</li>
+              <li>Non-surgical solution</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="removal">
+          <div class="service-img">
+            <img src="assets/images/Skin Tags, Moles & Warts Removal.png" alt="Skin Tags, Moles & Warts Removal">
+          </div>
+          <div class="service-text">
+            <h3>Skin Tags, Moles & Warts Removal</h3>
+            <p>Say goodbye to unwanted skin tags, moles, and warts with our safe and effective removal techniques. Achieve smooth, clear skin with minimal discomfort.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Quick and safe procedure</li>
+              <li>Minimal scarring</li>
+              <li>Improves skin appearance</li>
+              <li>Boosts confidence</li>
+              <li>Performed by experts</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="facials">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9" alt="Carbon Facial Treatments">
+          </div>
+          <div class="service-text">
+            <h3>Carbon Facial Treatments</h3>
+            <p>Revitalize your skin with our Carbon Facial, a laser-based treatment that deeply cleanses and rejuvenates, leaving your complexion glowing and refined.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Deep pore cleansing</li>
+              <li>Reduces oiliness</li>
+              <li>Improves skin texture</li>
+              <li>Minimizes pores</li>
+              <li>Instant radiance</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="anti-aging">
+          <div class="service-img">
+            <img src="assets/images/Chemical Peels.png" alt="Chemical Peels">
+          </div>
+          <div class="service-text">
+            <h3>Chemical Peels</h3>
+            <p>Transform your skin with our professional-grade chemical peels. This treatment exfoliates deeply, revealing a smoother, more youthful complexion.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Reduces fine lines</li>
+              <li>Improves skin tone</li>
+              <li>Removes dead skin cells</li>
+              <li>Stimulates cell turnover</li>
+              <li>Addresses pigmentation</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="removal">
+          <div class="service-img">
+            <img src="assets/images/Tattoo Removal.png" alt="Tattoo Removal">
+          </div>
+          <div class="service-text">
+            <h3>Tattoo Removal</h3>
+            <p>Erase unwanted tattoos with our advanced laser tattoo removal. Safe and effective, this treatment fades ink gradually for clear, beautiful skin.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Effective ink removal</li>
+              <li>Minimal discomfort</li>
+              <li>Safe for all skin types</li>
+              <li>Gradual fading</li>
+              <li>Restores natural skin</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="laser">
+          <div class="service-img">
+            <img src="assets/images/Laser Hair Reduction.jpeg" alt="Laser Hair Reduction">
+          </div>
+          <div class="service-text">
+            <h3>Laser Hair Reduction</h3>
+            <p>Enjoy long-lasting smoothness with our laser hair reduction. This advanced treatment targets hair follicles, reducing growth with precision and comfort.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Reduces hair growth</li>
+              <li>Long-lasting results</li>
+              <li>Safe and comfortable</li>
+              <li>Targets multiple areas</li>
+              <li>Smooth, silky skin</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="skin-analysis">
+          <div class="service-img">
+            <img src="assets/images/Hyperpigmentation Treatments.png" alt="Hyperpigmentation Treatments">
+          </div>
+          <div class="service-text">
+            <h3>Hyperpigmentation Treatments</h3>
+            <p>Brighten your complexion with our hyperpigmentation treatments. We target dark spots and uneven tone to reveal a radiant, even skin texture.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Fades dark spots</li>
+              <li>Evens skin tone</li>
+              <li>Reduces sun damage</li>
+              <li>Improves brightness</li>
+              <li>Customized solutions</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="injections">
+          <div class="service-img">
+            <img src="assets/images/Botox.jpeg" alt="Botox">
+          </div>
+          <div class="service-text">
+            <h3>Botox</h3>
+            <p>Smooth away wrinkles with Botox, a non-surgical treatment that relaxes facial muscles for a youthful, natural look with no downtime.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Reduces wrinkles</li>
+              <li>Quick procedure</li>
+              <li>No downtime</li>
+              <li>Natural results</li>
+              <li>Prevents new lines</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="injections">
+          <div class="service-img">
+            <img src="assets/images/Dermal Threads/Fillers.png" alt="Dermal Threads/Fillers">
+          </div>
+          <div class="service-text">
+            <h3>Dermal Threads/Fillers</h3>
+            <p>Enhance your features with dermal threads and fillers. This non-surgical treatment adds volume and lifts for a sculpted, youthful appearance.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Restores volume</li>
+              <li>Lifts sagging skin</li>
+              <li>Defines contours</li>
+              <li>Immediate results</li>
+              <li>Non-surgical</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+
+        <div class="service-detail" data-category="anti-aging">
+          <div class="service-img">
+            <img src="assets/images/Microneedling & Collagen Induction Therapy.png" alt="Microneedling & Collagen Induction Therapy">
+          </div>
+          <div class="service-text">
+            <h3>Microneedling & Collagen Induction Therapy</h3>
+            <p>Boost your skin’s natural collagen with microneedling. This therapy reduces scars, fine lines, and pores, revealing a firmer, youthful glow.</p>
+            <p>Benefits include:</p>
+            <ul>
+              <li>Stimulates collagen</li>
+              <li>Reduces scars</li>
+              <li>Minimizes pores</li>
+              <li>Improves texture</li>
+              <li>Youthful firmness</li>
+            </ul>
+            <a href="booking.html" class="btn service-btn">Reserve Your Glow</a>
+          </div>
+        </div>
+      </div>
+
   </section>
 
+</section>
   <!-- Floating Contact -->
   <div class="floating-contact">
-    <a href="tel:+94774511737">Call Us: 077 451 1737</a>
+    <a href="tel:+94774511737">
+      <i class="fa-solid fa-phone"></i>
+    </a>
     <a href="https://wa.me/94774511737?text=Hello%20GlowSkin,%20I%27d%20like%20to%20inquire%20about%20your%20services" class="whatsapp-btn" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>

@@ -296,7 +296,26 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
+document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const email = document.getElementById('subscriber-email').value;
+  const message = document.getElementById('subscription-message');
+
+  if (!email || !email.includes('@')) {
+    message.textContent = 'Please enter a valid email address.';
+    message.style.color = 'red';
+    return;
+  }
+
+  // Simulate successful subscription (replace with real API call if needed)
+  console.log('Subscribed:', email);
+  message.textContent = 'Thank you for subscribing GlowSkin Blog!';
+  message.style.color = 'green';
+
+  // Optionally clear input
+  document.getElementById('subscriber-email').value = '';
+});
   </script>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
